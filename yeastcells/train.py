@@ -58,7 +58,6 @@ def validate_labels(labels, path):
                 for ann in label['annotations']
                 if len(ann['segmentation'][0]) >= 6
             ]
-            print(label['annotations'])
             assert len(label['annotations']) > 0
             label['file_name'] = path + '/' + label['file_name']
 
