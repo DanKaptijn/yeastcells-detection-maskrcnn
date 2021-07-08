@@ -97,10 +97,10 @@ def register_data(path, prefix='yeast_cells_'):
 
 
 def train(config, data_path):
-    print(config)
     """Train the Mask-RCNN for the given configuration and the given data"""
     register_data(data_path, prefix='yeast_cells_')
     os.makedirs(config.OUTPUT_DIR, exist_ok=True)
+    print(config)
     trainer = DefaultTrainer(config)
     trainer.resume_or_load(resume=True)
     trainer.train()
