@@ -87,7 +87,7 @@ def register_data(path, prefix='yeast_cells_'):
     labels = validate_labels(labels, path)
 
     DatasetCatalog.clear()
-    print(label)
+    print(labels)
     exit()
     for label in labels:
         DatasetCatalog.register(f"{prefix}{label}", lambda label_=label: labels[label_])
