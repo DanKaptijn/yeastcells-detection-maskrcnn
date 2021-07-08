@@ -47,7 +47,10 @@ def validate_labels(labels, path):
     """Check if all annotations have a simple polygon and
     filter out polygons with less than 3 points or of image
     files that do not exist"""
+    print("path: ", path)
+    print("labels_type: ", type(labels))
     for labels_ in labels.values():
+        print("labels_: ", labels_)
         for label in labels_:
             for ann in label['annotations']:
                 assert len(ann['segmentation']) == 1
