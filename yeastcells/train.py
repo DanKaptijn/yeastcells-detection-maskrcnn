@@ -88,13 +88,13 @@ def register_data(path, prefix='yeast_cells_'):
 
     DatasetCatalog.clear()
     for label in labels:
-        print("Label: ",label)
+        print("Label: ",labels[label])
         DatasetCatalog.register(f"{prefix}{label}", lambda label_=label: labels[label_])
         MetadataCatalog.get(f"{prefix}{label}").set(thing_classes=["yeast_cell"])
 
     # yeast_cells_metadata = MetadataCatalog.get(f"{prefix}train")
-    for label in labels:
-        print("label_info: ", labels[label])
+#     for label in labels:
+#         print("label_info: ", labels[label])
     return labels
 
 
