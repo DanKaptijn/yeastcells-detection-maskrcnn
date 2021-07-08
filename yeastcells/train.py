@@ -93,7 +93,8 @@ def register_data(path, prefix='yeast_cells_'):
         MetadataCatalog.get(f"{prefix}{label}").set(thing_classes=["yeast_cell"])
 
     # yeast_cells_metadata = MetadataCatalog.get(f"{prefix}train")
-    print("labels type: ", type(labels))
+    for label in labels:
+        print("label_info: ", labels[label])
     return labels
 
 
