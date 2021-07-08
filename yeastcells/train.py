@@ -60,7 +60,6 @@ def validate_labels(labels, path):
             ]
             assert len(label['annotations']) > 0
             label['file_name'] = path + '/' + label['file_name']
-            print(label['annotations'])
 
     for k in labels:
         labels[k] = [
@@ -88,6 +87,8 @@ def register_data(path, prefix='yeast_cells_'):
     labels = validate_labels(labels, path)
 
     DatasetCatalog.clear()
+    print(label)
+    exit()
     for label in labels:
         DatasetCatalog.register(f"{prefix}{label}", lambda label_=label: labels[label_])
         MetadataCatalog.get(f"{prefix}{label}").set(thing_classes=["yeast_cell"])
