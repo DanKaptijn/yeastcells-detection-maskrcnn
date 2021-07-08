@@ -60,6 +60,7 @@ def validate_labels(labels, path):
             ]
             assert len(label['annotations']) > 0
             label['file_name'] = path + '/' + label['file_name']
+            print(label['annotations'])
 
     for k in labels:
         labels[k] = [
