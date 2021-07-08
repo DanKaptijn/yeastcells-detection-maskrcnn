@@ -48,9 +48,9 @@ def validate_labels(labels, path):
     filter out polygons with less than 3 points or of image
     files that do not exist"""
     print("path: ", path)
-    print("labels_type: ", type(labels))
+#     print("labels_type: ", type(labels))
     for labels_ in labels.values():
-        print("labels_: ", labels_)
+#         print("labels_: ", labels_)
         for label in labels_:
             for ann in label['annotations']:
                 assert len(ann['segmentation']) == 1
@@ -63,6 +63,7 @@ def validate_labels(labels, path):
             ]
             assert len(label['annotations']) > 0
             label['file_name'] = path + '/' + label['file_name']
+            print("label_filename: ", label['file_name'])
 
     for k in labels:
         labels[k] = [
@@ -91,13 +92,10 @@ def register_data(path, prefix='yeast_cells_'):
 
     DatasetCatalog.clear()
     for label in labels:
-        print("Label: ",labels[label])
         DatasetCatalog.register(f"{prefix}{label}", lambda label_=label: labels[label_])
         MetadataCatalog.get(f"{prefix}{label}").set(thing_classes=["yeast_cell"])
 
     # yeast_cells_metadata = MetadataCatalog.get(f"{prefix}train")
-#     for label in labels:
-#         print("label_info: ", labels[label])
     return labels
 
 
