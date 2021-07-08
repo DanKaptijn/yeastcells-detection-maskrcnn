@@ -87,9 +87,9 @@ def register_data(path, prefix='yeast_cells_'):
     labels = validate_labels(labels, path)
 
     DatasetCatalog.clear()
-    print(labels)
-    exit()
     for label in labels:
+        print(label)
+        exit()
         DatasetCatalog.register(f"{prefix}{label}", lambda label_=label: labels[label_])
         MetadataCatalog.get(f"{prefix}{label}").set(thing_classes=["yeast_cell"])
 
