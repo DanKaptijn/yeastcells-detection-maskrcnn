@@ -7,8 +7,10 @@ from detectron2.config import get_cfg
 import pandas as pd
 import numpy as np
 
+# def get_model(model_filename, seg_thresh=0.94, device='cpu',
+#               max_detections_per_frame=1000):
 def get_model(model_filename, seg_thresh=0.94, device='cpu',
-              max_detections_per_frame=1000):
+              max_detections_per_frame=100000):
     '''
     Load and configure the Mask-RCNN model.
     Parameters
